@@ -1,0 +1,51 @@
+.patientDetails {
+  margin: 10px 10px;
+  padding: 5px 5px;
+  border: 1px solid teal;
+}
+
+.patientCondition {
+  margin: 10px 10px;
+  padding: 5px 5px;
+  border: 1px solid teal;
+}
+
+.patientForm {
+  margin: 10px 10px;
+  padding: 25px 25px;
+  border: 1px solid teal;
+}
+
+.patientHeader {
+}
+
+.container {
+  outline: 1px solid dimgrey;
+  outline-offset: -1px;
+}
+
+.tblHeader th {
+  position: sticky;
+  top: 0;
+  background: teal;
+}
+
+i {
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+}
+
+.up::after {
+  content: "\25B2";
+}
+
+.down {
+}
+
+.down::after {
+  content: "\25BC";
+}

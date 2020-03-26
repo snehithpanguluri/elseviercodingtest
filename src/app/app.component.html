@@ -1,0 +1,61 @@
+<div class="patientHeader"><h2>Input Details</h2></div>
+
+<div class="patientForm">
+  <label style="padding: 2px 2px;">Number</label>
+  <input
+    style="padding: 2px 2px 2px 2px;"
+    type="text"
+    [(ngModel)]="inputPatientNumber"
+    placeholder="Enter patient number"
+  />
+  <button
+    style="padding: 2px 2px 2px 2px;"
+    (click)="getPatientBasicData()"
+    [disabled]="inputPatientNumber.length === 0"
+  >
+    Get Data
+  </button>
+</div>
+
+<div class="patientHeader"><h2>Patient Details</h2></div>
+<div class="patientDetails" *ngIf="patientDetails != null">
+  <div><label class="divlbl">Name :</label> {{ patientDetails.name }}</div>
+  <div><label class="divlbl">Gender :</label> {{ patientDetails.gender }}</div>
+  <div>
+    <label class="divlbl">Date of birth :</label>{{ patientDetails.birthDate }}
+  </div>
+</div>
+
+<div class="patientHeader"><h2>Patient active issues</h2></div>
+<div class="patientCondition container" *ngIf="conditions.length > 0">
+  <table class="tblHeader">
+    <thead>
+      <th>
+        <div>
+          Condition
+          <i (click)="sort('name', 'asc')" class="up"></i>
+          <i (click)="sort('name', 'dsc')" class="down"></i>
+        </div>
+      </th>
+      <th>
+        <div>
+          Date Of Record
+          <i (click)="sort('birthDate', 'asc')" class="up"></i>
+          <i (click)="sort('birthDate', 'dsc')" class="down"></i>
+        </div>
+      </th>
+      <th>Link for more info</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cond of conditions">
+        <td>{{ cond.name }}</td>
+        <td>{{ cond.dateofrecord }}</td>
+        <td>
+          <button (click)="search(cond.searchlink)">
+            click to search
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
